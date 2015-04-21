@@ -40,10 +40,12 @@ define (
 
 		p.getFilterFromMask = function (mask, parent) {
 
+			var createjs = this.createjs;
+
 			// Redraw the graphics.
 			var instructions = mask.graphics.getInstructions ();
 
-			var g = new this.createjs.Graphics;
+			var g = new createjs.Graphics;
 			g.beginFill ('#000000');
 			g.beginStroke ('#000000');
 			for (var i = 0; i < instructions.length; i ++) {
