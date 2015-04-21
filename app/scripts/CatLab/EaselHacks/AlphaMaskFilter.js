@@ -7,6 +7,7 @@ define (
 		var AlphaMaskFilter = function (createjs) {
 
 			var alphaMaskFilter = this;
+			this.createjs = createjs;
 
 			Object.defineProperty (
 				createjs.DisplayObject.prototype,
@@ -42,7 +43,7 @@ define (
 			// Redraw the graphics.
 			var instructions = mask.graphics.getInstructions ();
 
-			var g = new createjs.Graphics;
+			var g = new this.createjs.Graphics;
 			g.beginFill ('#000000');
 			g.beginStroke ('#000000');
 			for (var i = 0; i < instructions.length; i ++) {
