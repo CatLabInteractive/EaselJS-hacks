@@ -19,16 +19,18 @@ define (
 					'set' : function (mask) {
 						if (mask) {
 
-							this.originalMask = mask;
+							var self = this;
 
-							var filter = alphaMaskFilter.getFilterFromMask (mask, self);
+							self.originalMask = mask;
+
+							var filter = alphaMaskFilter.getFilterFromMask(mask, self);
 
 							// Instead of assigning the mask, assign a filter.
-							this.filters = [
+							self.filters = [
 								filter
 							];
 
-							this.cache (0, 0, 1000, 1000);
+							self.cache(0, 0, 500, 500);
 						}
 					}
 				}
@@ -39,6 +41,8 @@ define (
 		var p = AlphaMaskFilter.prototype;
 
 		p.getFilterFromMask = function (mask, parent) {
+
+			console.log (mask);
 
 			var createjs = this.createjs;
 
@@ -68,8 +72,6 @@ define (
 
 			// Cache this shit.
 			container.cache (parent.x, parent.y, 1000, 1000);
-
-			console.log (container);
 
 			return new createjs.AlphaMaskFilter(container.cacheCanvas);
 
