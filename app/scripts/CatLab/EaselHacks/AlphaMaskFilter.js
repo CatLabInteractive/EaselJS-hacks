@@ -14,13 +14,12 @@ define (
 				'mask',
 				{
 					'get' : function () {
-						return this.originalMask;
+						//return this.originalMask;
 					},
 					'set' : function (mask) {
 						if (mask) {
 
 							var self = this;
-
 							self.originalMask = mask;
 
 							var filter = alphaMaskFilter.getFilterFromMask(mask, self);
@@ -41,8 +40,6 @@ define (
 		var p = AlphaMaskFilter.prototype;
 
 		p.getFilterFromMask = function (mask, parent) {
-
-			console.log (mask);
 
 			var createjs = this.createjs;
 
