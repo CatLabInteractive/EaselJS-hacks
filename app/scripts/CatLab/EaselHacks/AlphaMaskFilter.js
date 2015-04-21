@@ -17,9 +17,11 @@ define (
 						//return this.originalMask;
 					},
 					'set' : function (mask) {
+
+						var self = this;
+
 						if (mask) {
 
-							var self = this;
 							self.originalMask = mask;
 
 							var filter = alphaMaskFilter.getFilterFromMask(mask, self);
@@ -29,6 +31,11 @@ define (
 								filter
 							];
 
+							self.cache(0, 0, 500, 500);
+						}
+
+						else if (mask !== null) {
+							self.filters = null;
 							self.cache(0, 0, 500, 500);
 						}
 					}
@@ -61,14 +68,14 @@ define (
 
 			subcontainer.scaleX = 1 / parent.scaleX;
 			subcontainer.scaleY = 1 / parent.scaleY;
-			subcontainer.y = 0-(parent.y / 2);
-			subcontainer.x = 0-(parent.x / 2);
+			subcontainer.y = -parent.y;
+			subcontainer.x = -parent.x;
 
 			var container = new createjs.Container ();
 			container.addChild (subcontainer);
 
 			// Cache this shit.
-			container.cache (parent.x, parent.y, 1000, 1000);
+			container.cache (0, 0, 1000, 1000);
 
 			return new createjs.AlphaMaskFilter(container.cacheCanvas);
 
