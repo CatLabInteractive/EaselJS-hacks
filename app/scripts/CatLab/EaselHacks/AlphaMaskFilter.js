@@ -15,6 +15,7 @@ define (
 				{
 					'get' : function () {
 						//return this.originalMask;
+						return this.forceMask;
 					},
 					'set' : function (mask) {
 
@@ -41,6 +42,11 @@ define (
 					}
 				}
 			);
+
+			// Override method.
+			createjs.DisplayObject.prototype.setMask = function (mask) {
+				this.forceMask = mask;
+			};
 
 		};
 
