@@ -4,7 +4,7 @@
     "Thijs Van der Schaeghe <thijs@catlab.be>"
   ],
   "description": "EaselJS hacks.",
-  "main": "dist/scripts/easeljs-hacks.js",
+  "main": "dist/scripts/easelhacks.js",
   "moduleType": [
     "amd"
   ],
