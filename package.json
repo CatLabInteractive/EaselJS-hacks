@@ -1,6 +1,6 @@
 {
-  "name": "Easelbone",
-  "version": "0.1.0",
+  "name": "easelhacks",
+  "version": "1.0.0",
   "main": "index.html",
   "author": "CatLab Interactive",
   "devDependencies": {
